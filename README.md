@@ -2,8 +2,6 @@ Despliegue de servidores de transferencia de archivos mediante tecnologías de v
 
 Crea un directorio, por ejemplo FTP que tenga el siguiente docker-compose.yml:
 
-version: '3.8'
-
 services:
   ftp:
     image: stilliard/pure-ftpd
@@ -24,6 +22,7 @@ services:
 
     volumes:
       - ./ftpdata:/home/ftpusers
+
 Crear el directorio y permisos (solo una vez):
 
 mkdir -p ~/ftp/ftpdata
