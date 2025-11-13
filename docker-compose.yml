@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   ftp:
     image: stilliard/pure-ftpd
@@ -12,7 +10,7 @@ services:
       - "30000-30009:30000-30009" # puertos pasivos
 
     environment:
-      PUBLICHOST: "172.20.203.229"  # ⚠️ IP de la máquina del alumno
+      PUBLICHOST: "172.20.203.229"  # ⚠️ IP del pc
       FTP_USER_NAME: alumno
       FTP_USER_PASS: 1234
       FTP_USER_HOME: /home/ftpusers/alumno
