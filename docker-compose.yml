@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  ftp:
+    image: stilliard/pure-ftpd
+    container_name: ftp
+    restart: unless-stopped
+
+    # ⚠️ No usar puertos 20/21 (requieren root)
+    ports:
+      - "2121:21"                # puerto de control FTP
+      - "30000-30009:30000-30009" # puertos pasivos
+
+    environment:
+      PUBLICHOST: "172.20.203.229"  # ⚠️ IP de la máquina del alumno
+      FTP_USER_NAME: alumno
+      FTP_USER_PASS: 1234
+      FTP_USER_HOME: /home/ftpusers/alumno
+      ADDED_FLAGS: "-d"             # habilita logs en consola
+
+    volumes:
+      - ./ftpdata:/home/ftpusers
